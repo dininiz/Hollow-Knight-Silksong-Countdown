@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>SILKSONG</title>
+</head>
+<body>
+    <div class="main">
+        <h1>Time until Silksong: </h1>
+        <h1 id="date"></h1>
+    </div>
+    <img src="wig.png" alt="" class="wig">
+</body>
+<script>
+    let dateblock = document.getElementById("date");
+
+let countdownDate = new Date("2025-09-04").getTime();
+
+let x = setInterval(function() {
+
+let now = new Date().getTime();
+
+let distance = countdownDate - now;
+
+let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+dateblock.innerHTML = days + "D " + hours + "H "
+  + minutes + "M " + seconds + "S ";
+
+    if (distance < 0) {
+    clearInterval(x);
+    dateblock.innerHTML = "EXPIRED";
+  }
+}, Infinity);
+</script>
+</html>
